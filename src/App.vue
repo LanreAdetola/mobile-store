@@ -4,7 +4,7 @@
     <div id="main-content">
       <!-- Store section -->
       <div id="store">
-        <ItemList :cart="cart" @add-to-cart="addToCart" />
+        <ItemList :items="items" :cart="cart" @add-to-cart="addToCart" />
       </div>
       <!-- Cart section -->
       <div id="cart">
@@ -28,10 +28,10 @@ export default {
   data() {
     return {
       items: [
-        { id: 1, name: 'Item 1', price: 10 },
-        { id: 2, name: 'Item 2', price: 20 },
-        { id: 3, name: 'Item 3', price: 30 },
-        { id: 4, name: 'Item 4', price: 50 },
+        { id: 1, name: 'Item 1', price: 10, image: 'basket1.png' },
+        { id: 2, name: 'Item 2', price: 20, image: 'basket1.png' },
+        { id: 3, name: 'Item 3', price: 30, image: 'basket1.png' },
+        { id: 4, name: 'Item 4', price: 50, image: 'basket1.png' },
         // Add more items as needed
       ],
       cart: []

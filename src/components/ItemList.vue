@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Store</h1>
+    <h1>Gift Baskets</h1>
     <!-- Display a list of items -->
     <StoreItem
       v-for="item in items"
@@ -17,18 +17,8 @@ import StoreItem from './StoreItem.vue';
 export default {
   components: { StoreItem },
   props: {
-    cart: Array // Passes the cart array as a prop
-  },
-  data() {
-    return {
-      items: [
-        { id: 1, name: 'Item 1', price: 10 },
-        { id: 2, name: 'Item 2', price: 20 },
-        { id: 3, name: 'Item 3', price: 30 },
-        { id: 4, name: 'Item 4', price: 50 },
-        // Add more items as needed
-      ]
-    };
+    items: Array, // Items passed as a prop from parent (App.vue)
+    cart: Array   // Cart also passed as a prop from parent
   },
   methods: {
     addToCart(item) {

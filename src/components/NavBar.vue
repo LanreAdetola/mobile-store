@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <!-- Link to the Store section with smooth scrolling -->
-      <li><a href="#store" @click.prevent="goTo('store')">Store</a></li>
+      <li><a href="#store" @click.prevent="goTo('store')">Celestial_Events Online Store</a></li>
       <!-- You can add more navigation links here in the future -->
     </ul>
   </nav>
