@@ -26,7 +26,8 @@ export default {
 nav {
   background-color: #333; /* Dark background for the nav bar */
   color: #fff; /* White text color */
-  padding: 1rem; /* Padding around the nav bar */
+  padding: 0.5rem 1rem; /* Adjusted padding for a more compact look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow for better separation */
 }
 
 ul {
@@ -45,9 +46,27 @@ a {
   color: #fff; /* White text color for links */
   text-decoration: none; /* Remove underline from links */
   padding: 0.5rem 1rem; /* Padding around the link text */
+  border-radius: 4px; /* Rounded corners for links */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
 a:hover {
   background-color: #555; /* Darker background color on hover */
+}
+
+/* Responsive Design for mobile devices */
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem; /* Reduced padding on smaller screens */
+  }
+
+  ul {
+    flex-direction: column; /* Stack navigation items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+
+  a {
+    padding: 0.5rem; /* Reduced padding for smaller screens */
+  }
 }
 </style>
