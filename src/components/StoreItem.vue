@@ -50,7 +50,7 @@ export default {
 
 /* Style for the item image */
 .item-image {
-  width: 300px; /* Fixed width for the image */
+  width: 100px; /* Fixed width for the image */
   height: auto; /* Keep the aspect ratio */
 }
 

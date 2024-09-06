@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <NavBar />
+
     <div id="main-content">
       <!-- Store section -->
-      <div id="store">
-        <ItemList :items="items" :cart="cart" @add-to-cart="addToCart" />
-      </div>
-      <!-- Cart section -->
-      <div id="cart">
-        <CartComp :cart="cart" @remove-from-cart="removeFromCart" @update-cart="updateCart" />
-      </div>
+        <div id="store">
+          <ItemList :items="items" :cart="cart" @add-to-cart="addToCart" />
+        </div>
+
+        <div id="cart">
+          <CartComp :cart="cart" @remove-from-cart="removeFromCart" @update-cart="updateCart" />
+        </div>
+
     </div>
     <FooterBar />
   </div>
@@ -82,10 +84,10 @@ export default {
   padding: 1rem; /* Padding inside the cart */
 }
 
-/* Responsive Design for tablets and mobile devices */
-@media (max-width: 768px) {
+/* Responsive Design for tablets and smaller devices */
+@media (max-width: 1024px) {
   #main-content {
-    flex-direction: column; /* Stack store and cart vertically on tablets */
+    flex-direction: column; /* Stack store and cart vertically on tablets and large phones */
   }
 
   #store {
@@ -110,4 +112,5 @@ export default {
     margin: 0; /* Remove any extra margins */
   }
 }
+
 </style>
