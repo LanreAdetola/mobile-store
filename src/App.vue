@@ -31,11 +31,10 @@ export default {
   data() {
     return {
       items: [
-        { id: 1, name: 'Item 1', price: 10, image: 'basket1.png' },
-        { id: 2, name: 'Item 2', price: 20, image: 'basket1.png' },
-        { id: 3, name: 'Item 3', price: 30, image: 'basket1.png' },
-        { id: 4, name: 'Item 4', price: 50, image: 'basket1.png' },
-        // Add more items as needed
+        { id: 1, name: 'Item 1', price: 10, image: require('@/assets/basket1.png') },
+        { id: 2, name: 'Item 2', price: 20, image: require('@/assets/basket1.png') },
+        { id: 3, name: 'Item 3', price: 30, image: require('@/assets/basket1.png') },
+        { id: 4, name: 'Item 4', price: 50, image: require('@/assets/basket1.png') },
       ],
       cart: []
     };
