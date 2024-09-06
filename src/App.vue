@@ -11,6 +11,7 @@
         <CartComp :cart="cart" @remove-from-cart="removeFromCart" @update-cart="updateCart" />
       </div>
     </div>
+    <FooterBar />
   </div>
 </template>
 
@@ -18,12 +19,14 @@
 import NavBar from './components/NavBar.vue';
 import ItemList from './components/ItemList.vue';
 import CartComp from './components/CartComp.vue';
+import FooterBar from './components/FooterBar.vue';
 
 export default {
   components: {
     NavBar,
     ItemList,
-    CartComp
+    CartComp,
+    FooterBar
   },
   data() {
     return {

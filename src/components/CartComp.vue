@@ -1,7 +1,12 @@
 <template>
   <div>
     <h2>Shopping Cart</h2>
-    <ul class="cart-list">
+    
+    <!-- Show when cart is empty -->
+    <p v-if="!cart.length">Your cart is empty.</p>
+    
+    <!-- Show cart items when available -->
+    <ul v-else class="cart-list">
       <li v-for="item in cart" :key="item.id" class="cart-item">
         <span class="item-info">
           {{ item.name }} - {{ item.price }} XAF x
@@ -14,6 +19,8 @@
         </div>
       </li>
     </ul>
+    
+    <!-- Show total price when items are in the cart -->
     <div v-if="cart.length" class="total">
       <p>Total: {{ total }} XAF</p>
     </div>
@@ -80,7 +87,7 @@ button {
   background-color: #28a745; /* Green background for buttons */
   color: #fff; /* White text color */
   border: none; /* Remove default border */
-  padding: 0.5rem; /* Padding inside the button */
+  padding: 0.5rem 1rem; /* Increased padding for touch devices */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
 }
