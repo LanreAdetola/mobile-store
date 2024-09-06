@@ -9,11 +9,11 @@
     <ul v-else class="cart-list">
       <li v-for="item in cart" :key="item.id" class="cart-item">
         <span class="item-info">
-          {{ item.name }} - {{ item.price }} XAF x
+          {{ item.name }} - {{ item.price }} XAF
         </span>
         <div class="item-controls">
           <button @click="decreaseQuantity(item)" aria-label="Decrease quantity">-</button>
-          <span>{{ item.quantity }}</span>
+          <span class="quantity">{{ item.quantity }}</span>
           <button @click="increaseQuantity(item)" aria-label="Increase quantity">+</button>
           <button @click="removeFromCart(item.id)" aria-label="Remove item">Remove</button>
         </div>
@@ -70,11 +70,13 @@ export default {
   align-items: center; /* Vertically center items */
   margin-bottom: 0.5rem; /* Space between items */
   border-bottom: 1px solid #ddd; /* Border for separation */
-  padding: 0.5rem 0; /* Padding for items */
+  padding: 0.5rem 1rem; /* Padding for items */
 }
 
 .item-info {
-  flex: 1; /* Allow item info to take up available space */
+  flex: 2; /* Allow item info to take up more space */
+  font-size: 1rem; /* Ensure font size is legible */
+  color: #333; /* Darker color for better contrast */
 }
 
 .item-controls {
@@ -83,13 +85,20 @@ export default {
   gap: 0.5rem; /* Space between controls */
 }
 
+.quantity {
+  font-weight: bold; /* Make quantity more noticeable */
+  font-size: 1rem; /* Adjust font size for readability */
+  color: #333; /* Darker color for better contrast */
+}
+
 button {
   background-color: #28a745; /* Green background for buttons */
   color: #fff; /* White text color */
   border: none; /* Remove default border */
-  padding: 0.5rem 1rem; /* Increased padding for touch devices */
+  padding: 0.5rem 0.75rem; /* Padding for buttons */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Ensure font size is legible on mobile */
 }
 
 button:hover {
@@ -99,5 +108,40 @@ button:hover {
 .total {
   margin-top: 1rem; /* Space above the total */
   font-weight: bold; /* Emphasize the total amount */
+  font-size: 1.2rem; /* Larger font size for the total */
+  color: #333; /* Darker color for better contrast */
+}
+
+/* Responsive Design for mobile devices */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column; /* Stack item info and controls vertically on small screens */
+  }
+
+  .item-controls {
+    flex-direction: column; /* Stack controls vertically on small screens */
+    align-items: stretch; /* Make controls take full width */
+  }
+
+  button {
+    width: 100%; /* Make buttons full width on small screens */
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .quantity {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 414px) {
+  .item-info {
+    font-size: 0.9rem; /* Adjust font size for very small screens */
+  }
+
+  button {
+    padding: 0.5rem; /* Maintain button size on very small screens */
+    font-size: 0.9rem; /* Ensure buttons are appropriately sized */
+  }
 }
 </style>

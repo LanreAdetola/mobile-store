@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <NavBar />
-
+    <NavBar :cart="cart" />
     <div id="main-content">
       <!-- Store section -->
-        <div id="store">
-          <ItemList :items="items" :cart="cart" @add-to-cart="addToCart" />
-        </div>
-
-        <div id="cart">
-          <CartComp :cart="cart" @remove-from-cart="removeFromCart" @update-cart="updateCart" />
-        </div>
-
+      <div id="store">
+        <ItemList :items="items" :cart="cart" @add-to-cart="addToCart" />
+      </div>
+      <!-- Cart section -->
+      <div id="cart">
+        <CartComp :cart="cart" @remove-from-cart="removeFromCart" @update-cart="updateCart" />
+      </div>
     </div>
     <FooterBar />
   </div>
@@ -64,6 +62,7 @@ export default {
 };
 </script>
 
+
 <style>
 /* Base styling for the main content container */
 #main-content {
@@ -82,12 +81,16 @@ export default {
   border: 1px solid #ddd; /* Optional border for better visibility */
   border-radius: 5px; /* Rounded corners for the cart */
   padding: 1rem; /* Padding inside the cart */
+  position: sticky; /* Sticky position for cart */
+  top: 1rem; /* Distance from the top of the viewport */
+  height: calc(100vh - 2rem); /* Adjust height to fit the viewport minus padding */
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
 }
 
-/* Responsive Design for tablets and smaller devices */
-@media (max-width: 1024px) {
+/* Responsive Design for tablets and mobile devices */
+@media (max-width: 768px) {
   #main-content {
-    flex-direction: column; /* Stack store and cart vertically on tablets and large phones */
+    flex-direction: column; /* Stack store and cart vertically on tablets */
   }
 
   #store {
@@ -98,6 +101,8 @@ export default {
   #cart {
     border: none; /* Optional: Remove border on smaller screens */
     padding: 0.5rem; /* Adjust padding for smaller screens */
+    position: static; /* Make cart static on smaller screens */
+    height: auto; /* Adjust height to auto on smaller screens */
   }
 }
 
@@ -112,5 +117,6 @@ export default {
     margin: 0; /* Remove any extra margins */
   }
 }
+
 
 </style>

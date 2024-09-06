@@ -3,13 +3,24 @@
     <ul>
       <!-- Link to the Store section with smooth scrolling -->
       <li><a href="#store" @click.prevent="goTo('store')">Celestial_Events Online Store</a></li>
-      <!-- You can add more navigation links here in the future -->
+      <!-- Cart Overview -->
+      <li class="cart-summary" @click="goTo('cart')">
+        Cart ({{ cartItemCount }})
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
 export default {
+  props: {
+    cart: Array
+  },
+  computed: {
+    cartItemCount() {
+      return this.cart.reduce((count, item) => count + item.quantity, 0);
+    }
+  },
   methods: {
     goTo(section) {
       // Smooth scroll to the specified section by ID
@@ -33,7 +44,7 @@ nav {
 ul {
   list-style: none; /* Remove bullet points from the list */
   display: flex; /* Display list items in a row */
-  justify-content: center; /* Center items horizontally */
+  justify-content: space-between; /* Space items evenly */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
 }
@@ -54,6 +65,18 @@ a:hover {
   background-color: #555; /* Darker background color on hover */
 }
 
+.cart-summary {
+  color: #fff; /* White text color for cart summary */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 0.5rem 1rem; /* Padding around the cart summary */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.cart-summary:hover {
+  background-color: #555; /* Darker background color on hover */
+}
+
 /* Responsive Design for mobile devices */
 @media (max-width: 768px) {
   nav {
@@ -65,7 +88,7 @@ a:hover {
     align-items: center; /* Center items horizontally */
   }
 
-  a {
+  a, .cart-summary {
     padding: 0.5rem; /* Reduced padding for smaller screens */
   }
 }
